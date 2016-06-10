@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'fog-json', '~> 1.0'
   spec.add_dependency 'fog-xml', '~> 0.1'
   spec.add_dependency 'rest-client', '~> 1.6.9'
-  spec.add_dependency 'azure_mgmt_compute', '~> 0.2.1'
-  spec.add_dependency 'azure_mgmt_resources', '~> 0.2.1'
-  spec.add_dependency 'azure_mgmt_storage', '~> 0.2.1'
-  spec.add_dependency 'azure_mgmt_network', '~> 0.2.1'
+  spec.add_dependency 'azure_mgmt_compute', '~> 0.3.1'
+  spec.add_dependency 'azure_mgmt_resources', '~> 0.3.1'
+  spec.add_dependency 'azure_mgmt_storage', '~> 0.3.1'
+  spec.add_dependency 'azure_mgmt_network', '~> 0.3.1'
 end
