@@ -3,11 +3,11 @@ module Fog
     class AzureRM
       # This class provides the actual implemention for service calls.
       class Real
-        def list_virtual_networks(resource_group)
+        def list_all_virtual_networks
           begin
-            response = @network_client.virtual_networks.list(resource_group)
-            result = response.value!
-            Azure::ARM::Network::Models::VirtualNetworkListResult.serialize_object(result.body)['value']
+            response = @network_client.virtual_networks.list_all
+            response.value
+            # Azure::ARM::Network::Models::VirtualNetworkListResult.serialize_object(result.body)['value']
           rescue MsRestAzure::AzureOperationError => e
             msg = "Exception listing Virtual Networks. #{e.body['error']['message']}."
             raise msg
@@ -17,7 +17,7 @@ module Fog
 
       # This class provides the mock implementation for unit tests.
       class Mock
-        def list_virtual_networks(resource_group)
+        def list_all_virtual_networks
           [
             {
               'id' => "/subscriptions/########-####-####-####-############/resourceGroups/#{resource_group}/providers/Microsoft.Network/virtualNetworks/testVnet",
