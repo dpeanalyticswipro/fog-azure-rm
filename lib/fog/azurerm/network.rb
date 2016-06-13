@@ -13,6 +13,7 @@ module Fog
       request :create_virtual_network
       request :delete_virtual_network
       request :list_virtual_networks
+      request :list_all_virtual_networks
       request :check_for_virtual_network
       request :create_public_ip
       request :delete_public_ip

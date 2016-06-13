@@ -3,6 +3,17 @@ module Fog
     class AzureRM
       # This class provides the actual implemention for service calls.
       class Real
+        def list_all_virtual_networks
+          begin
+            response = @network_client.virtual_networks.list_all
+            response.value
+            # Azure::ARM::Network::Models::VirtualNetworkListResult.serialize_object(result.body)['value']
+          rescue MsRestAzure::AzureOperationError => e
+            msg = "Exception listing Virtual Networks. #{e.body['error']['message']}."
+            raise msg
+          end
+        end
+
         def list_virtual_networks(resource_group)
           begin
             response = @network_client.virtual_networks.list(resource_group)

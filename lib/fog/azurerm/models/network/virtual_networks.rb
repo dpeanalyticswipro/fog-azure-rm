@@ -10,6 +10,14 @@ module Fog
         model Fog::Network::AzureRM::VirtualNetwork
         attribute :resource_group
 
+        def get_all
+          virtual_networks = []
+          service.list_virtual_networks.each do |vnet|
+            virtual_networks << Fog::Network::AzureRM::VirtualNetwork.parse(vnet)
+          end
+          load(virtual_networks)
+        end
+
         def all
           requires :resource_group
           virtual_networks = []
