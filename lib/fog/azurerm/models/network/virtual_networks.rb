@@ -12,7 +12,7 @@ module Fog
 
         def get_all
           virtual_networks = []
-          service.list_virtual_networks.each do |vnet|
+          service.list_all_virtual_networks.each do |vnet|
             virtual_networks << Fog::Network::AzureRM::VirtualNetwork.parse(vnet)
           end
           load(virtual_networks)
